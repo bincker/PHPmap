@@ -11,17 +11,12 @@
 #
 #--
 import sys,os,sqlite3,urllib
-if (os.name == 'nt'):
-	for loc, dir, fn in os.walk(os.getcwd()):
-		for d in dir: 
-			if d is not []: 
-				sys.path.append(os.path.join(os.getcwd()+'\\'+d))
-else:
-	for loc, dir, fn in os.walk(os.getcwd()):
-		for d in dir: 
-			if d is not []: 
-				sys.path.append(os.path.join(os.getcwd()+'/'+d))			
-			
+for loc, dir, fn in os.walk(os.getcwd()):
+	for d in dir: 
+		if d is not []: 
+			sys.path.append(os.path.join(os.getcwd()+os.path.sep+d))
+
+
 def main():
 	from formfinder import FRMFind
 	from Options import Options
